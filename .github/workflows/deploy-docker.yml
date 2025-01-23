@@ -40,7 +40,7 @@ jobs:
         run: |
           scp -i private_key.pem -o StrictHostKeyChecking=no \
             docker-compose.yml \
-            docker-config/init-mongo.js \
+            init-mongo.js \
             .env \
             ${{ vars.SSH_USER }}@${{ vars.SSH_SERVER }}:/var/www/docker-bdd
 
