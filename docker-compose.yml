@@ -32,9 +32,27 @@ services:
     networks:
       - cliandcollect-network
 
+  mongodb-tests:
+    image: mongo:6.0
+    container_name: cliandcollect-mongodb-tests
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: cliandcollect-mongo-tests
+      MONGO_API_USER: user
+      MONGO_API_PASSWORD: password
+    volumes:
+      - mongodb_tests_data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+    networks:
+      - cliandcollect-network
+
 volumes:
   mysql_data:
   mongodb_data:
+  mongodb_tests_data:
 
 networks:
   cliandcollect-network:
