@@ -20,4 +20,6 @@ db.createUser({
   ]
 });
 
+db.contact.createIndex({ location: "2dsphere" });
+
 print(`Utilisateur ${utilisateurBd} créé avec succès dans la base de données ${nomBd}.`);
