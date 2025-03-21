@@ -45,7 +45,7 @@ services:
       MONGO_API_PASSWORD: password
     volumes:
       - mongodb_tests_data:/data/db
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     networks:
       - cliandcollect-network
 
